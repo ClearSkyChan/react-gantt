@@ -3,16 +3,21 @@
     height:100%;
     display: flex;
     flex-direction: column;
+    font-size:13px;
 }
 .gantt-header-wrapper{
     display: flex;
-    height:30px;
-    line-height: 30px;
+    height:50px;
+    line-height: 50px;
+    background-color:#fff;
     border-bottom:1px solid #eee;
 }
 .gantt-header{
+    margin-right:17px;
     flex:1;
     display: flex;
+    overflow: hidden;
+    border-right: 1px solid #eee;
 }
 .gantt-header-locked{
     width:150px;
@@ -21,29 +26,60 @@
 
 
 .gantt-header-cell{
-    width:50px;
+    width:60px;
     text-align: center;
-    border-left:1px solid #eee;
-}
-.gantt-header-cell:last-child{
     border-right:1px solid #eee;
+    flex-shrink:0;
 }
-.gantt-header-cell:first-child{
-    border-left:none;
-}
+
 .gantt-content-wrapper{
     flex:1;
     display: flex;
+    overflow: hidden;
 }
 .gantt-content-locked{
     width:150px;
-    border-right:1px solid #eee;
+    background-color: #fff;
+    background-size:150px 46px;
+    overflow: hidden;
 }
 
 .gantt-content{
     flex:1;
     overflow: scroll;
+    position: relative;
+    /* background-color: #fff;
+    background-image: linear-gradient(0deg,  #aaa 0px, transparent 0.8px),
+                      linear-gradient(90deg, #eee 0px,transparent 0.8px);
+    background-size: 60px 46px; */
 }
+
+
 .gantt-index{
+    height:46px;
+    line-height:46px;
+    text-align: center;
+    border-right:1px solid #eee;
+    border-bottom:1px solid #eee;
+}
+.gantt-row{
+    height:46px;
+    line-height:46px;
+    background-image:     linear-gradient(90deg, transparent 59px,#e3e3e3 60px);
+    background-size: 60px 100px;
+    border-bottom:1px solid #eee;
+}
+
+.flight-sch{
+    height:5px;
+    background-color:#ffa39e;
+}
+
+.flight{
+    background-color: #096dd9;
+    border-radius: 4px;
+    color:#fff;
     height:30px;
+    line-height: 30px;
+    text-align: center;
 }

@@ -1,17 +1,15 @@
 import React from 'react';
 import './task.css';
 class Task extends React.Component {
-    constructor () {
-        super()
-    }
     render() {
         const taskStyle = {
-            left:this.props.left+'px'||0,
-            width:this.props.width+'px'||40
+            left: (this.props.left||0) + 'px',
+            width:(this.props.width||40) + 'px',
+            top:(this.props.top||0) +'px'
         }
         return (
-            <div className="task" style={taskStyle}>
-                    aaa
+            <div className={this.props.className + " task "} style={taskStyle}>
+                    {this.props.children}
             </div>
         )
     }
