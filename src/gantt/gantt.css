@@ -1,0 +1,49 @@
+.gantt{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.gantt-header-wrapper{
+    display: flex;
+    height:30px;
+    line-height: 30px;
+    border-bottom:1px solid #eee;
+}
+.gantt-header{
+    flex:1;
+    display: flex;
+}
+.gantt-header-locked{
+    width:150px;
+    border-right:1px solid #eee;
+}
+
+
+.gantt-header-cell{
+    width:50px;
+    text-align: center;
+    border-left:1px solid #eee;
+}
+.gantt-header-cell:last-child{
+    border-right:1px solid #eee;
+}
+.gantt-header-cell:first-child{
+    border-left:none;
+}
+.gantt-content-wrapper{
+    flex:1;
+    display: flex;
+}
+.gantt-content-locked{
+    width:150px;
+    border-right:1px solid #eee;
+}
+
+.gantt-content{
+    flex:1;
+    overflow: scroll;
+}
+.gantt-index{
+    height:30px;
+}

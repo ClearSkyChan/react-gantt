@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Gantt from './gantt/gantt'
+import Block from './gantt/block'
+import LockBlock from './gantt/lockBlock'
+import Task from './gantt/task'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Gantt>
+      <div>
+        <LockBlock>B-XXX1</LockBlock>
+        <LockBlock>B-XXX1</LockBlock>
+        <LockBlock>B-XXX1</LockBlock>
+      </div>
+      <div>
+        <Block>
+          <Task left="200" width="50"></Task>
+          <Task left="100" width="50"></Task>
+          <Task left="0" width="100"></Task>
+        </Block>
+        <Block>
+          <Task></Task>
+        </Block>
+        <Block>
+          <Task></Task>
+        </Block>
+      </div>
+    </Gantt>
   );
 }
 

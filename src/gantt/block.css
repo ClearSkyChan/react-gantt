@@ -1,0 +1,5 @@
+.gantt-block{
+    position: relative;
+    height:40px;
+    border-bottom:1px solid #eee;
+}
