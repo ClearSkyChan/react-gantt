@@ -46,28 +46,51 @@ class Gantt extends React.Component {
                 </div>
                 <div className="gantt-content-wrapper">
                     <div className="gantt-content-locked">
-                        {
-                            this.state.indexes.map((value, index) => {
-                                return (
-                                    <div key={index} className="gantt-index">{value}</div>
-                                )
-                            })
-                        }
+                            {this.props.indexs}
                     </div>
                     <div className="gantt-content" onScroll={this.onScroll}>
-                        {
-                            this.state.indexes.map((value, index) => {
-                                return (
-                                    <div key={index} className="gantt-row" style={ganttRowStyle}>
-                                    </div>
-                                )
-                            })
-                        }
-                        {this.props.children}
+                            {this.props.blocks}
                     </div>
                 </div>
             </div>
         )
     }
 }
-export default Gantt;
+
+class Side extends React.Component {
+    render() {
+        return (
+            <div className="side">
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+class Block extends React.Component {
+    render() {
+        return (
+            <div className="gantt-block">
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+
+class Task extends React.Component {
+    render() {
+        const taskStyle = {
+            left: (this.props.left||0) + 'px',
+            width:(this.props.width||40) + 'px',
+            top:this.props.top
+        }
+        return (
+            <div className={this.props.className + " task "} style={taskStyle}>
+                    {this.props.children}
+            </div>
+        )
+    }
+}
+
+export {Gantt,Side,Block,Task};
