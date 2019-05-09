@@ -18,7 +18,6 @@ class Gantt extends React.Component {
         }
     }
     onScroll(event,y){
-        console.log(event.target.scrollTop,)
         var scrollLeft = event.target.scrollLeft;
         var scrollTop = event.target.scrollTop;
         document.getElementsByClassName('gantt-header')[0].scrollLeft = scrollLeft
@@ -61,8 +60,9 @@ class Gantt extends React.Component {
 
 class Side extends React.Component {
     render() {
+        let className = "side " + (this.props.className||"");
         return (
-            <div className="side">
+            <div className={className}>
                 {this.props.children}
             </div>
         )
@@ -71,7 +71,7 @@ class Side extends React.Component {
 
 class Block extends React.Component {
     render() {
-        var className ="gantt-block";
+        var className ="gantt-block ";
         className += this.props.alt?" gantt-block-alt":"";
         return (
             <div className={className}>
@@ -90,7 +90,7 @@ class Task extends React.Component {
             top:this.props.top
         }
         return (
-            <div className={this.props.className + " task "} style={taskStyle}>
+            <div className={this.props.className + " task "} style={taskStyle} title={this.props.title}>
                     {this.props.children}
             </div>
         )

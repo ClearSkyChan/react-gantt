@@ -26,6 +26,14 @@ class App extends React.Component {
             depa: 'ZUCK',
             airri: 'ZULS',
             left: 450,
+            width: 150,
+            locked: true
+          }
+          , {
+            flightNo: 'GT8300',
+            depa: 'ZULS',
+            airri: 'ZBAA',
+            left: 850,
             width: 150
           }
         ],
@@ -46,14 +54,21 @@ class App extends React.Component {
             {
               this.state.data.map((v, i) => {
                 return (
-                  <Side key={i} className="side">
+                  <Side key={i}>
                     <div className="ac-info">
                       <div className="ac-reg">
-                        <i class="icon-flight"></i>
-                        {v.aircraft.acReg}
+                        <i className="iconfont icon-plane"></i>
+                        &nbsp;{v.aircraft.acReg}
                       </div>
                       <div className="ac-detail">
-                        {v.aircraft.acType} / {v.aircraft.maxSeat}
+                        <div className="ac-type">
+                          <i className="iconfont icon-kind" style={{ fontSize: "11px" }}></i>
+                          &nbsp;{v.aircraft.acType}
+                        </div>
+                        <div className="ac-seat">
+                          <i className="iconfont icon-seat" style={{ fontSize: "11px" }}></i>
+                          &nbsp;{v.aircraft.maxSeat}
+                        </div>
                       </div>
                     </div>
                   </Side>
@@ -65,37 +80,53 @@ class App extends React.Component {
         blocks={
           <div>
             {
+              
+
               this.state.data.map((v, i) => {
                 return (
-                  <Block key={i} alt={i%2}>
-                    <Task left="150" width="70" className="airport">
+                  <Block key={i} alt={i % 2}>
+                    <Task left="150" width="50" className="airport">
                       ZGGG
+                    </Task>
+                    <Task left="150" width="70" className="airport-status">
                     </Task>
                     {
                       v.flights.map((f, j) => {
-                        var fsClass = j>0?"flight-status flight-status-sch":"flight-status flight-status-flying"
+                        var fsClass = j > 0 ? "flight-status flight-status-sch" : "flight-status flight-status-flying"
+                        var icon = f.locked?(<div style={{position:'absolute',width:'40px'}}><i className="iconfont icon-lock"></i></div>):"";
                         return (
                           <div key={j}>
                             <Task left={f.left} width={f.width} className="flight">
-                              {f.flightNo}
+                              { icon }
+                              <div>{f.flightNo}</div>
                             </Task>
-                            <Task left={f.left + (j<1?20:0)} width={f.width} className={fsClass}>
+                            <Task left={f.left + (j < 1 ? 20 : 0)} width={f.width} className={fsClass}>
                             </Task>
                           </div>
                         )
                       })
                     }
-                    <Task left="420" width="30" className="airport airport-less-time">
-                     ZUCK
+
+                    <Task left="400" width="50" className="airport">
+                      ZUCK
                     </Task>
-                    <Task left="600" width="50" className="airport">
+                    <Task left="420" width="30" className="airport-status airport-less-time">
+                    </Task>
+
+                    <Task left="600" width="250" className="airport">
                       ZULS
                     </Task>
+                    <Task left="600" width="250" className="airport-status">
+                    </Task>
+
+
                     <Task left="1600" width="150" className="maint">
+                      <i className="iconfont icon-weixiu"></i>&nbsp;
                       机务维修工作
                     </Task>
                     <Task left="1400" width="120" className="overnight">
-                      (ZBAA,ZGGG)
+                      <i className="iconfont  icon-weizhi" style={{ fontSize: "13px" }}></i>
+                      <span title="限制过夜">ZBAA</span>
                     </Task>
                   </Block>
                 )

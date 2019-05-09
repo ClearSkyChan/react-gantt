@@ -39,28 +39,9 @@
   box-sizing: border-box;
 }
 
-.side{
-  background-color: #f5f5f5;
-}
-
-.ac-info{
-  /* display: flex; */
-}
-.ac-reg{
-  height:24px;
-  line-height: 24px;
-  font-size:16px;
-  color:#002766;
-}
-.ac-detail{
-  height:22px;
-  line-height: 22px;
-  font-size:14px;
-  color:#120338
-}
 
 .flight-status{
-  height:10px;
+  height:6px;
   border-radius: 2px;
   top:34px;
 }
@@ -77,21 +58,26 @@
   border-radius: 4px;
   color:#fff;
   height:26px;
-  line-height: 30px;
+  line-height: 26px;
   text-align: center;
   top:6px;
   font-size: 14px;
 }
-
 .airport{
-  background-color:#d9f7be;
+  background-color:#e6fffb;
   color:#333;
-  height:10px;
-  line-height:10px;
+  height:20px;
+  line-height:20px;
+  text-align: center;
+  top:9px;
+  font-size: 13px;
+  border-radius: 2px;
+}
+.airport-status{
+  background-color:#b7eb8f;
+  height:6px;
   text-align: center;
   top:34px;
-  font-size: 10px;
-  font-weight: bold;
   border-radius: 2px;
 }
 .airport-less-time{
@@ -114,6 +100,25 @@
   top:7px;
   border-radius: 4px;
 }
-.ac-logo{
-  background-image: url()
+
+.ac-info{
+  display: flex;
+  height:100%;
+}
+.ac-reg{
+  flex:3;
+  color:#002766;
+  font-size:18px;
+  line-height: 45px;
+}
+.ac-detail{
+  display: flex;
+  flex-direction:column;
+  flex:2;
+  color:#120338
+}
+.ac-type,.ac-seat{
+  font-size:11px;
+  line-height: 22px;
+  flex:1;
 }
